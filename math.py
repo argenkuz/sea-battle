@@ -8,6 +8,16 @@ LETTERS_TO_NUMBERS = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6}
 
 ships_amount = {1: 3, 2: 2}
 
+def is_already_shot(coord):
+    # Check if the coordinate has already been shot
+    x = int(coord[1]) - 1
+    y = LETTERS_TO_NUMBERS[coord[0]]
+
+    if VISIBLE_BOARD[x][y] == "m" or VISIBLE_BOARD[x][y] == "X":
+        return True
+    else:
+        return False
+
 
 # Game loop
 while True:
