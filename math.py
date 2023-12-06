@@ -48,6 +48,24 @@ def generate_single_ship():
         generate_single_ship()
     else:
         GAME_BOARD[x][y] = "O"
+
+def got_interruption(x, y):
+    # Check if there is an interruption for ship placement
+    interrupted = False
+
+    for i in range(x - 1, x + 2):
+        for j in range(y - 1, y + 2):
+            if i == x and j == y:
+                if ship_exists(i, j):
+                    interrupted = True
+                else:
+                    continue
+            elif 0 <= i <= 6 and 0 <= j <= 6:
+                if ship_exists(i, j):
+                    interrupted = True
+
+    return interrupted
+
 # Game loop
 while True:
     print("Missed shots are marked as 'm'.\nHitting shots are marked as 'X'.")
