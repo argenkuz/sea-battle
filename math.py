@@ -80,6 +80,44 @@ def generate_big_ship(length):
     directions = []
     created_big_ship = True
 
+    if not got_interruption(x_cord, y_cord):
+        if x_cord + length <= 6:
+            directions.append("down")
+        if y_cord + length <= 6:
+            directions.append("right")
+        if x_cord - length >= -1:
+            directions.append("up")
+        if y_cord - length >= -1:
+            directions.append("left")
+    else:
+        return False
+
+    choice = random.choice(directions)
+
+    if choice == "left":
+        count = y_cord + 1
+        for i in range(length):
+            GAME_BOARD[x_cord][count - 1] = "O"
+            count -= 1
+    elif choice == "right":
+        count = y_cord - 1
+        for i in range(length):
+            GAME_BOARD[x_cord][count + 1] = "O"
+            count += 1
+    elif choice == "up":
+        count = x_cord + 1
+        for i in range(length):
+            GAME_BOARD[count - 1][y_cord] = "O"
+            count -= 1
+    elif choice == "down":
+        count = x_cord - 1
+        for i in range(length):
+            GAME_BOARD[count + 1][y_cord] = "O"
+            count += 1
+
+    return created_big_ship
+    
+
 # Game loop
 while True:
     print("Missed shots are marked as 'm'.\nHitting shots are marked as 'X'.")
