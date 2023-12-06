@@ -39,6 +39,15 @@ def make_hit(coord):
     else:
         VISIBLE_BOARD[x][y] = "m"
 
+def generate_single_ship():
+    # Generate a single ship on the game board
+    x = random.randint(0, 6)
+    y = random.randint(0, 6)
+
+    if got_interruption(x, y):
+        generate_single_ship()
+    else:
+        GAME_BOARD[x][y] = "O"
 # Game loop
 while True:
     print("Missed shots are marked as 'm'.\nHitting shots are marked as 'X'.")
