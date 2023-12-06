@@ -71,7 +71,14 @@ def ship_exists(x_cord, y_cord):
     if GAME_BOARD[x_cord][y_cord] == "O":
         return True
     else:
-        return False    
+        return False
+
+def generate_big_ship(length):
+    # Generate a bigger ship on the game board
+    x_cord = random.randint(0, 6)
+    y_cord = random.randint(0, 6)
+    directions = []
+    created_big_ship = True
 
 # Game loop
 while True:
