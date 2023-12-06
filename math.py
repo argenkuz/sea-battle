@@ -116,7 +116,14 @@ def generate_big_ship(length):
             count += 1
 
     return created_big_ship
-    
+
+# Place ships on the game board
+for elem in ships_amount.items():
+    c = 0
+    while c != elem[0]:
+        if generate_big_ship(elem[1]):
+            c += 1
+
 
 # Game loop
 while True:
