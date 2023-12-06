@@ -66,6 +66,13 @@ def got_interruption(x, y):
 
     return interrupted
 
+def ship_exists(x_cord, y_cord):
+    # Check if a ship exists at the given coordinates
+    if GAME_BOARD[x_cord][y_cord] == "O":
+        return True
+    else:
+        return False    
+
 # Game loop
 while True:
     print("Missed shots are marked as 'm'.\nHitting shots are marked as 'X'.")
