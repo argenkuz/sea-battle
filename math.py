@@ -2,10 +2,14 @@ import random
 import os
 import time
 
-GAME_BOARD = [[" ", " ", " ", " ", " ", " ", " "] for x in range(7)]
-VISIBLE_BOARD = [[" ", " ", " ", " ", " ", " ", " "] for x in range(7)]
+# Initialize game boards
+GAME_BOARD = [[" " for _ in range(7)] for _ in range(7)]
+VISIBLE_BOARD = [[" " for _ in range(7)] for _ in range(7)]
+
+# Mapping letters to numbers for easier indexing
 LETTERS_TO_NUMBERS = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6}
 
+# Define the number of ships of each size
 ships_amount = {1: 3, 2: 2}
 
 def is_already_shot(coord):
@@ -124,6 +128,9 @@ for elem in ships_amount.items():
         if generate_big_ship(elem[1]):
             c += 1
 
+# Place single ships on the game board
+for _ in range(4):
+    generate_single_ship()
 
 # Game loop
 while True:
