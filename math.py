@@ -18,6 +18,17 @@ def is_already_shot(coord):
     else:
         return False
 
+def display_interface(board):
+    # Display the game interface
+    print("   A B C D E F G")
+    print("  --------------")
+
+    for i in range(len(board)):
+        row = ""
+        for j in range(len(board[i])):
+            row = row + board[i][j] + " "
+
+        print(f"{i + 1}| {row}")
 
 # Game loop
 while True:
