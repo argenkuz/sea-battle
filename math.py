@@ -30,6 +30,15 @@ def display_interface(board):
 
         print(f"{i + 1}| {row}")
 
+def make_hit(coord):
+    # Update the visible board based on the hit
+    x = int(coord[1]) - 1
+    y = LETTERS_TO_NUMBERS[coord[0]]
+    if GAME_BOARD[x][y] == "O":
+        VISIBLE_BOARD[x][y] = "X"
+    else:
+        VISIBLE_BOARD[x][y] = "m"
+
 # Game loop
 while True:
     print("Missed shots are marked as 'm'.\nHitting shots are marked as 'X'.")
